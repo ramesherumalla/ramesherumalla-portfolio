@@ -454,6 +454,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#files">Files</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -567,6 +568,17 @@
             <p class="section-subtitle">Professional credentials and coursework</p>
             <div id="publicCertContainer">
                 <!-- Certifications will load here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FILES -->
+    <section id="files" class="section">
+        <div class="container">
+            <h2 class="section-title">Files</h2>
+            <p class="section-subtitle">Documents and supporting files</p>
+            <div id="publicFilesContainer">
+                <!-- Public files will load here -->
             </div>
         </div>
     </section>
@@ -776,6 +788,29 @@
         `).join('') + `</div>`;
     }
 
+    function renderFiles() {
+        const container = document.getElementById('publicFilesContainer');
+
+        if (!portfolioData.files.length) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i data-lucide="folder-open" style="width:48px; height:48px; opacity:0.5;"></i>
+                    <h3>Files Coming Soon</h3>
+                </div>`;
+            return;
+        }
+
+        container.innerHTML = `<div class="grid-2">` + portfolioData.files.map(file => `
+            <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+                <div>
+                    <h3 style="font-size:1.05rem;">${file.name}</h3>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">${file.type || 'Public file'}</div>
+                </div>
+                <a href="${file.dataUrl || file.url}" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><i data-lucide="download"></i> Open</a>
+            </div>
+        `).join('') + `</div>`;
+    }
+
     function renderResume() {
         const container = document.getElementById('resumeContainer');
         
@@ -816,6 +851,7 @@
     renderSkills();
     renderProjects();
     renderCertifications();
+    renderFiles();
     renderResume();
     lucide.createIcons();
 </script>
