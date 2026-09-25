@@ -498,7 +498,7 @@
             </div>
             
             <div class="analytics-visual">
-                <img id="profilePhoto" class="profile-photo" src="assets/photos/profile.jpg" alt="Ramesh Erumalla">
+                <img id="profilePhoto" class="profile-photo" src="assets/photos/profile.jpg.jpeg" alt="Ramesh Erumalla">
             </div>
         </div>
     </section>
@@ -705,7 +705,7 @@
     
     // Mail icon in hero
     document.getElementById('heroEmail').href = email ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}` : "#";
-    document.getElementById('profilePhoto').src = portfolioData.profile.photo || "assets/photos/profile.jpg";
+    document.getElementById('profilePhoto').src = portfolioData.profile.photo || "assets/photos/profile.jpg.jpeg";
 
     document.getElementById('eduDegree').innerText = portfolioData.education.degree || "";
     document.getElementById('eduCollege').innerText = portfolioData.education.college || "";
