@@ -124,6 +124,18 @@
             box-shadow: var(--shadow);
         }
 
+        .profile-photo {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center;
+            margin: 0;
+            border-radius: 1rem;
+            border: 3px solid var(--accent);
+        }
+
         .badge {
             display: inline-block;
             padding: 0.25rem 0.6rem;
@@ -486,28 +498,7 @@
             </div>
             
             <div class="analytics-visual">
-                <div class="mini-cards">
-                    <div class="mini-card">
-                        <div class="mini-card-title">DATA ACCURACY</div>
-                        <div class="mini-card-val">99.4%</div>
-                    </div>
-                    <div class="mini-card">
-                        <div class="mini-card-title">QUERY EFFICIENCY</div>
-                        <div class="mini-card-val">2.4x</div>
-                    </div>
-                </div>
-                <div class="visual-bar-chart">
-                    <div class="bar" style="height: 40%;"></div>
-                    <div class="bar" style="height: 70%;"></div>
-                    <div class="bar" style="height: 50%;"></div>
-                    <div class="bar" style="height: 90%;"></div>
-                    <div class="bar" style="height: 65%;"></div>
-                    <div class="bar" style="height: 80%;"></div>
-                </div>
-                <div style="display:flex; justify-content:space-between; font-size: 0.8rem; color: var(--text-secondary);">
-                    <span>Weekly Data Processing Metrics</span>
-                    <span style="color:var(--success)">▲ +14%</span>
-                </div>
+                <img id="profilePhoto" class="profile-photo" src="assets/photos/profile.jpg" alt="Ramesh Erumalla">
             </div>
         </div>
     </section>
@@ -584,7 +575,7 @@
     <!-- FILES -->
     <section id="files" class="section">
         <div class="container">
-            <h2 class="section-title">Files & Certificates</h2>
+            <h2 class="section-title">Public Files</h2>
             <p class="section-subtitle">Public documents and supporting files</p>
             <div id="publicFilesContainer">
                 <!-- Public files will load here -->
@@ -714,6 +705,7 @@
     
     // Mail icon in hero
     document.getElementById('heroEmail').href = email ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}` : "#";
+    document.getElementById('profilePhoto').src = portfolioData.profile.photo || "assets/photos/profile.jpg";
 
     document.getElementById('eduDegree').innerText = portfolioData.education.degree || "";
     document.getElementById('eduCollege').innerText = portfolioData.education.college || "";
